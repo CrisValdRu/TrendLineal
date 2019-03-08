@@ -1,12 +1,11 @@
 import sys
 import rrdtool
 import time
-ultima_lectura = int(rrdtool.last("trafico1.rrd"))
+ultima_lectura = int(rrdtool.last("trafico.rrd"))
 tiempo_final = ultima_lectura
 tiempo_inicial = tiempo_final - 3600
 
-
-ret = rrdtool.graphv( "Deteccion.png",
+ret = rrdtool.graphv( "deteccion.png",
                      "--start",str(tiempo_inicial),
                      "--end",str(tiempo_final),
                      "--vertical-label=Bytes/s",
