@@ -34,3 +34,5 @@ ret = rrdtool.graph( pngpath+"trend.png",
                      "VDEF:b=carga,LSLINT",
                      'CDEF:tendencia=carga,POP,m,COUNT,*,b,+',
                      "LINE2:tendencia#FFBB00" )
+
+print(ret)
