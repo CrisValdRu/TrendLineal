@@ -1,12 +1,10 @@
 import smtplib
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
-
+from path import  *
 COMMASPACE = ', '
 # Define params
-rrdpath = '/home/escom/PycharmProjects/TrendLineal1/RRD/'
-pngpath = '/home/escom/PycharmProjects/TrendLineal1/IMG/'
-fname = 'trend.rrd'
+
 
 mailsender = "dummycuenta3@gmail.com"
 mailreceip = "dummycuenta3@gmail.com"

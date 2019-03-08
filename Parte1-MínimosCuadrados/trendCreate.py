@@ -1,5 +1,7 @@
 import rrdtool
-ret = rrdtool.create("/home/escom/PycharmProjects/TrendLineal1/RRD/trend.rrd",
+from path import *
+
+ret = rrdtool.create(rrdpath+rrdname,
                      "--start",'N',
                      "--step",'60',
                      "DS:CPUload:GAUGE:600:U:U",

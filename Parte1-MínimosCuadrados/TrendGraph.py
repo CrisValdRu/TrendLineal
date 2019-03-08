@@ -1,9 +1,7 @@
 import rrdtool
 import time
-rrdpath = '/home/escom/PycharmProjects/TrendLineal1/RRD/'
-pngpath = '/home/escom/PycharmProjects/TrendLineal1/IMG/'
-fname = 'trend.rrd'
-ultima_lectura = int(rrdtool.last(rrdpath+fname))
+from path import *
+ultima_lectura = int(rrdtool.last(rrdpath+rrdname))
 tiempo_final = ultima_lectura
 tiempo_inicial = tiempo_final - 3600
 
@@ -16,7 +14,7 @@ ret = rrdtool.graph( pngpath+"trend.png",
                      '--vertical-label', "Uso de CPU (%)",
                      '--lower-limit', '0',
                      '--upper-limit', '100',
-                     "DEF:carga="+rrdpath+"trend.rrd:CPUload:AVERAGE",
+                     "DEF:carga="+rrdpath+rrdname+":CPUload:AVERAGE",
                      "AREA:carga#00FF00:Carga CPU",
                      "LINE1:30",
                      "AREA:5#ff000022:stack",
@@ -35,4 +33,3 @@ ret = rrdtool.graph( pngpath+"trend.png",
                      'CDEF:tendencia=carga,POP,m,COUNT,*,b,+',
                      "LINE2:tendencia#FFBB00" )
 
-print(ret)
