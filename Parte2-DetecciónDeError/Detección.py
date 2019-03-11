@@ -1,7 +1,6 @@
 import rrdtool
 from path import *
-
-
+from Parte3.Notify import send_alert_attached
 tiempo_final = int(rrdtool.last(rrdpath+"trend.rrd"))
 tiempo_inicial = tiempo_final - 3600
 
@@ -32,5 +31,5 @@ ret = rrdtool.graphv( pngpath+"deteccion.png",
 
 ultimo_valor=float(ret['print[0]'])
 
-#if ultimo_valor>23:
-    #send_alert_attached("Sobrepasa Umbral línea base")
+if ultimo_valor>23:
+    send_alert_attached("Sobrepasa Umbral línea base")
